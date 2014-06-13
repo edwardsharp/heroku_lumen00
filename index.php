@@ -15,7 +15,9 @@ $db = pg_connect(pg_connection_string());
 if (!$db) {
     echo "Database connection error."
     exit;
+}else{
+	echo "ZOMG,YAY!"
 }
  
-$result = pg_query($db, "SELECT stuff");
+//$result = pg_query($db, "SELECT stuff");
 ?>
