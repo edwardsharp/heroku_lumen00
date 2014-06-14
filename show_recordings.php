@@ -8,8 +8,8 @@
 			<h1>LISTEN UP (TO ZEE FILE RECORDINGZ)</h1>
 		<?php
     // Include the PHP TwilioRest library 
-	include 'Services/Twilio.php';
-    
+	// include 'Services/Twilio.php';
+		require 'vendor/autoload.php';	    
     // Twilio REST API version 
     $ApiVersion = "2010-04-01";
     

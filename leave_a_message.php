@@ -1,6 +1,6 @@
 <?php
-
-require "Services/Twilio.php";
+require 'vendor/autoload.php';	
+// require "Services/Twilio.php";
 include "messages.php";
 
 if (strlen($_REQUEST['exten'])) {

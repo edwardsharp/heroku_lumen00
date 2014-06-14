@@ -1,6 +1,6 @@
 <?php
-
-require "Services/Twilio.php";
+require 'vendor/autoload.php';	
+// require "Services/Twilio.php";
 require "messages.php";
 
 $error=false;
