@@ -22,10 +22,15 @@ $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snipp
 		$(document).ready(function(){
 			Twilio.Device.setup("<?php echo $token->generateToken();?>",{"debug":true});
 			$("#call").click(function() {  
+				$("#press5").show();
 				Twilio.Device.connect();
 			});
 			$("#hangup").click(function() {  
   				connection.sendDigits("#");
+			});
+
+			$("#press5").click(function() {  
+  				connection.sendDigits("5");
 			});
 
 			Twilio.Device.ready(function (device) {
@@ -65,13 +70,13 @@ $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snipp
 	<body>
 		<div align="center">
 		<!-- @start snippet -->
-			<h3>Create a Recording</h3>
 			<input type="button" id="call" value="start recording"/>
 			<input type="button" id="hangup" value="stop recording" style="display:none;"/>
+			<input type="button" id="press5" value="press 5" style="display:none;"/>
+
 			<div id="status">
 				yo, it's offline rightnow.
 			</div>
-		<!-- @end snippet -->
 		</div>
 
 	</body>
