@@ -12,7 +12,7 @@ $recordings = $client->account->recordings->getIterator(0, 50, array(
 foreach ($recordings as $recording) {
 	echo " - - - - - - -";
 	echo $recording->sid + " " + $recording->$Uri; 
-	echo ""
+	echo "";
 }
 
  
