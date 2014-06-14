@@ -19,7 +19,7 @@
 
 		$client = new Services_Twilio($accountSid, $authToken);
 
-		$recordings = $client->account->recordings->getIterator(0, 50, array(   
+		$recordings = $client->account->recordings->getIterator(0, 200, array(   
 		)); 
 
 		echo "<h1>LISTEN UP (TO ZEE PHONE RECORDINGZ)</h1>";

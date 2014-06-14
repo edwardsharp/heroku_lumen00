@@ -34,7 +34,7 @@ $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snipp
 			});
 
 			Twilio.Device.ready(function (device) {
-				$('#status').text('system is ready, yo!');
+				$('#status').text('');
 			});
 
 			Twilio.Device.offline(function (device) {
@@ -47,14 +47,15 @@ $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snipp
 
 			Twilio.Device.connect(function (conn) {
 				connection=conn;
-				$('#status').text("it is live, yo!");
+				$('#status').text("");
 				$('#status').css('color', '#ff660');
 				toggleCallStatus();
 			});
 
 			Twilio.Device.disconnect(function (conn) {
-				$('#status').html('recording ended!<br/><a href="show_recordings.php">view recording list</a>');
+				$('#status').html('recording ended. <br/><a href="show_recordings.php">view recording list</a>');
 				$('#status').css('color', 'black');
+				$("#press5").hide();
 				toggleCallStatus();
 			});
 			
@@ -75,7 +76,7 @@ $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snipp
 			<input type="button" id="press5" value="press 5" style="display:none;"/>
 
 			<div id="status">
-				yo, it's offline rightnow.
+				yo, it's offline rightnow :(
 			</div>
 		</div>
 
