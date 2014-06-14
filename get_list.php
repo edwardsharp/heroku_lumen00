@@ -14,12 +14,6 @@ foreach ($recordings as $recording) {
 	echo $recording->sid; 
 }
 
-
-
-
-
-
-$client = new Services_Twilio($account_sid, $auth_token); 
  
 $calls = $client->account->calls->getIterator(0, 50, array(      
 )); 
