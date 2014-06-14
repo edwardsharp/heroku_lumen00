@@ -10,8 +10,9 @@ $recordings = $client->account->recordings->getIterator(0, 50, array(
 )); 
  
 foreach ($recordings as $recording) {
-	echo " - - - - - - -"	 
-	echo $recording->sid; 
+	echo " - - - - - - -";
+	echo $recording->sid + " " + $recording->$Uri; 
+	echo ""
 }
 
  
@@ -19,7 +20,7 @@ $calls = $client->account->calls->getIterator(0, 50, array(
 )); 
  
 foreach ($calls as $call) { 
-	echo " # # # # # # # # "
+	echo " # # # # # # # # ";
 	echo $call->sid; 
 }
 
