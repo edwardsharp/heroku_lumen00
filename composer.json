@@ -1,5 +1,6 @@
 {
     "require": {
-        "monolog/monolog": "~1.7"
+        "monolog/monolog": "~1.7",
+	"twilio/sdk": "~3.12"
     }
 }
