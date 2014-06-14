@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 	<Gather action="handle-user-input.php" numDigits="1">
-		<Say>ZOMG! Why you been calling this number? What do you need?</Say>
+		<Say>Why you been calling this number? What do you need?</Say>
 		<Say> Press 1.</Say>
 		<Say> Press 2.</Say>
 		<Say> Press 3.</Say>
 		<Say> Press 4.</Say>
+		<Say> Press 5.</Say>
 	</Gather>
 	<!-- If customer doesn't input anything, prompt and try again. -->
 	<Say>Sorry, sorry, sorry, sorry! Sorry! SORRY! SORRY! oh so so so sorry sorry sorry.</Say>
