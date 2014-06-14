@@ -8,23 +8,25 @@
 
 	if ($user_pushed == 1)
 	{
-		echo '<Say>Our store hours are 8 AM to 8 PM everyday.</Say>';
+		echo '<Say>ZOMG I MUST SAY TWEET!</Say>';
 	}
-	# @start snippet
 	else if ($user_pushed == 2)
 	{
-		echo '<Gather action="handle-extension.php" numDigits="1">';
-		echo "<Say>Please enter your party's extension.</Say>";
-		echo '<Say>Press 0 to return to the main menu</Say>';
-		echo '</Gather>';
-		echo "<Say>Sorry, I didn't get your response.</Say>";
-		echo '<Redirect method="GET">handle-user-input.php?Digits=2</Redirect>';
+		echo "<Say>so so oh so Sorry! too sorry! two sorry!</Say>";
+		echo '<Redirect>handle-incoming-call.php</Redirect>';
+		
 	}
-	# @end snippet
+	else if ($user_pushed == 3)
+	{
+		echo "<Say>Sorry! Sorry! Sorry!</Say>";
+		echo '<Redirect>handle-incoming-call.php</Redirect>';
+		
+	}
+	
 	else {
 		// We'll implement the rest of the functionality in the 
 		// following sections.
-		echo "<Say>Sorry, I can't do that yet.</Say>";
+		echo "<Say>Sorry, sorry, sorry, sorry, sorry, sorry, sorry!</Say>";
 		echo '<Redirect>handle-incoming-call.php</Redirect>';
 	}
 
