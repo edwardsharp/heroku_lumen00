@@ -14,8 +14,8 @@
     $ApiVersion = "2010-04-01";
     
     // Set our AccountSid and AuthToken 
-	$accountSid = 'AC828cb7e80f68cbb54b74e3ecb990bdf6';
-	$authToken  = 'fff5edb02b98081f968436dc8db33434';
+	$accountSid = getenv("ASID");;
+	$authToken  = getenv("AUTHTOKEN");
 
 	// @start snippet
     // Instantiate a new Twilio Rest Client 

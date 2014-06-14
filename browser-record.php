@@ -2,8 +2,8 @@
 require 'vendor/autoload.php';	
 //require "Services/Twilio.php"
 //require "Services/Twilio/Capability.php";
-$accountSid = 'AC828cb7e80f68cbb54b74e3ecb990bdf6';
-$authToken  = 'fff5edb02b98081f968436dc8db33434';
+$accountSid = getenv("ASID");;
+$authToken  = getenv("AUTHTOKEN");
 $token = new Services_Twilio_Capability($accountSid, $authToken);
 $token->allowClientOutgoing('APe50e37e24df1d6f7dbbc626f7ab9a722'); // @end snippet
 ?>
