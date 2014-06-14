@@ -8,21 +8,30 @@
 
 	if ($user_pushed == 1)
 	{
-		echo '<Say>ZOMG I MUST SAY TWEET!</Say>';
+		echo '<Say>ZOMG I MUST SAY!</Say>';
+		echo '<Play>http://lumen00.herokuapp.com/s/1.mp3</Play>';
 	}
 	else if ($user_pushed == 2)
 	{
-		echo "<Say>so so oh so Sorry! too sorry! two sorry!</Say>";
+		echo "<Say>Two oh too.</Say>";
+		echo '<Play>http://lumen00.herokuapp.com/s/2.mp3</Play>';
 		echo '<Redirect>handle-incoming-call.php</Redirect>';
 		
 	}
 	else if ($user_pushed == 3)
 	{
-		echo "<Say>Sorry! Sorry! Sorry!</Say>";
+		echo "<Say>We're spying on you. :)</Say>";
+		echo '<Play>http://lumen00.herokuapp.com/s/3.mp3</Play>';
 		echo '<Redirect>handle-incoming-call.php</Redirect>';
 		
 	}
-	
+	else if ($user_pushed == 4)
+	{
+		echo "<Say>On all fours.</Say>";
+		echo '<Play>http://lumen00.herokuapp.com/s/4.mp3</Play>';
+		echo '<Redirect>handle-incoming-call.php</Redirect>';
+		
+	}
 	else {
 		// We'll implement the rest of the functionality in the 
 		// following sections.

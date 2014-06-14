@@ -2,9 +2,10 @@
 <Response>
 	<Gather action="handle-user-input.php" numDigits="1">
 		<Say>ZOMG! Why you been calling this number? What do you need?</Say>
-		<Say>For an update press 1.</Say>
-		<Say>To record, press 2.</Say>
-		<Say>To hear random text, press 3.</Say>
+		<Say> Press 1.</Say>
+		<Say> Press 2.</Say>
+		<Say> Press 3.</Say>
+		<Say> Press 4.</Say>
 	</Gather>
 	<!-- If customer doesn't input anything, prompt and try again. -->
 	<Say>Sorry, sorry, sorry, sorry! Sorry! SORRY! SORRY! oh so so so sorry sorry sorry.</Say>
