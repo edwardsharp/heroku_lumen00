@@ -9,5 +9,5 @@
 		finishOnKey="#"
         maxLength="99"
         />
-    <Say>What the fuck?! good bye!</Say>
+    <Say>good bye!</Say>
 </Response>

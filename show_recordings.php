@@ -20,8 +20,13 @@
 	// @start snippet
     // Instantiate a new Twilio Rest Client 
 	$client = new Services_Twilio($accountSid, $authToken);
+
+	$recordings = $client->account->recordings->getIterator(0, 50, array(   
+	)); 
+
+
 	echo ("<table>");
-	foreach($client->account->recordings as $recording) {
+	foreach ($recordings as $recording) { 
   		echo "<tr><td>{$recording->duration} seconds</td> ";
   		echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
   		echo "<td>{$recording->date_created}</td>";

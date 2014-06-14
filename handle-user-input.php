@@ -20,7 +20,7 @@
 	}
 	else if ($user_pushed == 3)
 	{
-		echo "<Say>We're spying on you. :)</Say>";
+		echo "<Say>lol! lolol! zomg!</Say>";
 		echo '<Play>http://lumen00.herokuapp.com/s/3.mp3</Play>';
 		echo '<Redirect>handle-incoming-call.php</Redirect>';
 		
@@ -31,6 +31,13 @@
 		echo '<Play>http://lumen00.herokuapp.com/s/4.mp3</Play>';
 		echo '<Redirect>handle-incoming-call.php</Redirect>';
 		
+	}
+	else if ($user_pushed == 5)
+	{
+		echo "<Say>We're spying on you. :)</Say>";
+		echo "<Say>Record your expierence after the beep.</Say>";
+    echo '<Record maxLength="99" action="handle-recording.php" />';
+		echo '<Redirect>handle-incoming-call.php</Redirect>';
 	}
 	else {
 		// We'll implement the rest of the functionality in the 
