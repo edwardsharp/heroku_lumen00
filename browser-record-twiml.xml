@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say>
+        Record after the beep, yo. BEEP! 
+    </Say>
+    <Record
+        action="recording-goodbye.php"
+        method="GET"
+		finishOnKey="#"
+        maxLength="99"
+        />
+    <Say>What the fuck?! good bye!</Say>
+</Response>
