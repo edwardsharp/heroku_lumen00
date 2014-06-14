@@ -27,10 +27,11 @@
 
 	echo ("<table>");
 	foreach ($recordings as $recording) { 
-  		echo "<tr><td>{$recording->duration} seconds</td> ";
-  		echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
+  		echo "<tr>";
   		echo "<td>{$recording->date_created}</td>";
-  		echo "<td>{$recording->sid}</td></tr>";
+  		echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
+  		echo "<td>{$recording->duration} seconds</td>";
+  		echo "</tr>";
 	}
 	echo ("<table>");
 	// @end snippet

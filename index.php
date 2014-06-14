@@ -1,34 +1,40 @@
-<?php
-require('vendor/autoload.php');
- 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
- 
-// create a log channel to STDERR
-$log = new Logger('name');
-$log->pushHandler(new StreamHandler('php://stderr', Logger::WARNING));
- 
-// add records to the log
-$log->addWarning("ZOMG THIS IS ADD LOGG");
- 
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			lumen00 -- LISTEN TO PHONE RECORDINGZ
+		</title>
+		<body>
+			<h1>LISTEN UP (TO ZEE PHONE RECORDINGZ)</h1>
+		<?php
+    // Include the PHP TwilioRest library 
+	// include 'Services/Twilio.php';
+		require 'vendor/autoload.php';	    
+    // Twilio REST API version 
+    $ApiVersion = "2010-04-01";
+    
+    // Set our AccountSid and AuthToken 
+	$accountSid = 'AC828cb7e80f68cbb54b74e3ecb990bdf6';
+	$authToken  = 'fff5edb02b98081f968436dc8db33434';
 
- $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+	// @start snippet
+    // Instantiate a new Twilio Rest Client 
+	$client = new Services_Twilio($accountSid, $authToken);
 
-  $server = $url["host"];
-  $username = $url["user"];
-  $password = $url["pass"];
-  $db = substr($url["path"],1);
+	$recordings = $client->account->recordings->getIterator(0, 50, array(   
+	)); 
 
-  mysql_connect($server, $username, $password);
 
-  mysql_select_db($db);
- 
-	if (!$db) {
-	    echo "err?";
-	    exit;
-	}else{
-		echo "ZOMG,YAY!";
+	echo ("<table>");
+	foreach ($recordings as $recording) { 
+  		echo "<tr>";
+  		echo "<td>{$recording->date_created}</td>";
+  		echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
+  		echo "<td>{$recording->duration} seconds</td>";
+  		echo "</tr>";
 	}
-
-
-?>
+	echo ("<table>");
+	// @end snippet
+    ?>
+	</body>
+</html>
