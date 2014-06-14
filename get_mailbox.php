@@ -11,7 +11,8 @@ if (strlen($_REQUEST['Digits'])) {
 	if ($mailbox===false) {
 		$error=true;
 	}else {
-		header("location: get_passcode.php?exten=$exten");
+		//header("location: get_passcode.php?exten=$exten");
+		header("location: message_menu.php?exten=$exten");
 		exit();
 	}
 }

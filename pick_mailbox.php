@@ -26,7 +26,7 @@ if($error)
 
 $gather->say("Enter the extension you wish to leave a message for, followed by"
 	. " the #sign");
-$response->say('I did not receive an extension.');
+$response->say('Did not receive an extension.');
 $response->redirect('pick_mailbox.php');
 
 print $response;

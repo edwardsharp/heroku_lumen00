@@ -37,9 +37,9 @@ if (strlen($_REQUEST['Digits'])) {
 	} else if ($digits == 2){
 		//save
 		updateMessageFlag($messages[$current_msg],1);
-	} else if ($digits == 3){
-		//delete
-		updateMessageFlag($messages[$current_msg],2);
+	// } else if ($digits == 3){
+	// 	//delete
+	// 	updateMessageFlag($messages[$current_msg],2);
 	}
 
 	if($current_msg + 1 < $total_messages) {
@@ -78,7 +78,7 @@ $gather = $response->gather(
 );
 
 if($first) {
-	$gather->say("Press 1 to skip, 2 to save, 3 to delete");
+	$gather->say("Press 1 to skip, 2 to save");
 } else {
 	$gather->say("Next");
 }

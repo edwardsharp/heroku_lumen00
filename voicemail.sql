@@ -1,18 +1,15 @@
 CREATE TABLE voicemailbox (
 vmb_extension varchar(8) primary key not null, 
 vmb_description varchar(32) not null, 
-vmb_passcode varchar(8) not null,
 vmb_last_checked datetime
 );
 
 insert into voicemailbox (
 	vmb_extension,
-	vmb_description,
-	vmb_passcode
+	vmb_description
 )values (
 	'1234',
 	'Test voicemail',
-	'9411'
 );
 
 CREATE TABLE messages (

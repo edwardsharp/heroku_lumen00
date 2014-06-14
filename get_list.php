@@ -1,6 +1,6 @@
 <?php 
 // this line loads the library 
-require('/path/to/twilio-php/Services/Twilio.php'); 
+require('Services/Twilio.php'); 
  
 $account_sid = 'AC828cb7e80f68cbb54b74e3ecb990bdf6'; 
 $auth_token = 'a070bfc127cddd747c0c90397c834710'; 

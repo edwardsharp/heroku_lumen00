@@ -1,10 +1,27 @@
 <?php
 
-//DB Constants - Change to your settings
-$db_host='localhost';
-$db_name='company_directory';
-$db_user='db_username';
-$db_passwd='db_password';
+$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+$db_host=$url["host"];
+$db_name=substr($url["path"],1);
+$db_user=$url["user"];
+$db_passwd=$url["pass"];
+
+	$sql = "CREATE TABLE IF NOT EXISTS voicemailbox (
+	vmb_extension varchar(8) primary key not null, 
+	vmb_description varchar(32) not null, 
+	vmb_last_checked datetime
+	);
+	CREATE TABLE IF NOT EXISTS messages (
+		message_id int not null primary key auto_increment, 
+		message_frn_vmb_extension varchar(8) not null, 
+		message_date datetime not null, 
+		message_from varchar(16),
+		message_audio_url varchar(1024),
+		message_flag int(1) default 0
+	);";
+   
+
+
 
 //function for retrieving voicemail box by exten
 function getMailbox($voicemail_exten) {
@@ -15,6 +32,8 @@ function getMailbox($voicemail_exten) {
 		or die('Could not connect: ' . mysql_error());
 
 	mysql_select_db($db_name) or die('Could not select database');
+
+	mysql_query($sql);
 
 
 	//make sure inputs are db safe
@@ -33,7 +52,7 @@ function getMailbox($voicemail_exten) {
 		$mailbox = array();
 		$mailbox['exten'] = $line['vmb_extension'];
 		$mailbox['desc'] = $line['vmb_description'];
-		$mailbox['passcode'] = $line['vmb_passcode'];
+		// $mailbox['passcode'] = $line['vmb_passcode'];
 	}
 
 	mysql_close();
@@ -48,6 +67,7 @@ function addMessage($voicemail_exten, $caller_id, $recording_url) {
 
 	mysql_select_db($db_name) or die('Could not select database');
 
+	mysql_query($sql);
 
 	//make sure inputs are db safe
 	$voicemail_exten = mysql_real_escape_string($voicemail_exten);
@@ -75,6 +95,8 @@ function updateMessageFlag($msg_id, $flag=0){
 
 	mysql_select_db($db_name) or die('Could not select database');
 
+	mysql_query($sql);
+
 	//make sure inputs are db safe
 	$msg_id = mysql_real_escape_string($msg_id);
 	$flag = mysql_real_escape_string($flag);
@@ -94,6 +116,8 @@ function getMessages($voicemail_exten,$flag=0){
 		or die('Could not connect: ' . mysql_error());
 
 	mysql_select_db($db_name) or die('Could not select database');
+
+	mysql_query($sql);
 
 	//make sure inputs are db safe
 	$voicemail_exten = mysql_real_escape_string($voicemail_exten);
@@ -123,6 +147,8 @@ function getMessage($msg_id){
 		or die('Could not connect: ' . mysql_error());
 
 	mysql_select_db($db_name) or die('Could not select database');
+
+	mysql_query($sql);
 
 	//make sure inputs are db safe
 	$msg_id = mysql_real_escape_string($msg_id);
