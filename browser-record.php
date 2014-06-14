@@ -1,5 +1,6 @@
 <?php // @start snippet
-require "Services/Twilio/Capability.php";
+require "Services/Twilio.php"
+//require "Services/Twilio/Capability.php";
 $accountSid = 'AC828cb7e80f68cbb54b74e3ecb990bdf6';
 $authToken  = 'fff5edb02b98081f968436dc8db33434';
 $token = new Services_Twilio_Capability($accountSid, $authToken);
