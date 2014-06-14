@@ -24,7 +24,7 @@ $log->addWarning("ZOMG THIS IS ADD LOGG");
   mysql_select_db($db);
  
 	if (!$db) {
-	    echo "Database connection error.";
+	    echo "err?";
 	    exit;
 	}else{
 		echo "ZOMG,YAY!";
