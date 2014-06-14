@@ -25,7 +25,7 @@
 		echo "<h1>LISTEN UP (TO ZEE PHONE RECORDINGZ)</h1>";
 		echo ("<table>");
 		foreach ($recordings as $recording) { 
-	  		echo "<tr>";
+	  		echo "<tr style='margin-bottom:3em;'>";
 	  		echo "<td>{$recording->date_created}</td>";
 	  		echo "<td><audio src=\"https://api.twilio.com/2010-04-01/Accounts/$accountSid/Recordings/{$recording->sid}.mp3\" controls preload=\"auto\" autobuffer></audio></td>";
 	  		echo "<td>{$recording->duration} seconds</td>";
