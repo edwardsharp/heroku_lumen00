@@ -8,7 +8,7 @@ if (strlen($_REQUEST['exten'])){
 	$exten=$_REQUEST['exten'];
 } else {
 	$response = new Services_Twilio_Twiml();
-	$response->say("Sorry, Failure. Oh golly... ");
+	$response->say("Sorry! Failure is inevitable without an extension... ");
 	die((string) $response);
 }
 

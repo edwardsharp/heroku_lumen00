@@ -1,6 +1,13 @@
 {
-    "require": {
-        "monolog/monolog": "~1.7",
-	"twilio/sdk": "dev-master"
+ "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/asimlqt/php-google-spreadsheet-client"
+    }
+  ],
+  "require": {
+      "monolog/monolog": "~1.7",
+			"twilio/sdk": "dev-master",
+			"asimlqt/php-google-spreadsheet-client": "2.1.*"
     }
 }
