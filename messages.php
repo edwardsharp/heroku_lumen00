@@ -1,10 +1,6 @@
 <?php
 
-$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
-$db_host=$url["host"];
-$db_name=substr($url["path"],1);
-$db_user=$url["user"];
-$db_passwd=$url["pass"];
+
 
 	$sql = "CREATE TABLE IF NOT EXISTS voicemailbox (
 	vmb_extension varchar(8) primary key not null, 
@@ -21,19 +17,25 @@ $db_passwd=$url["pass"];
 	);";
    
 
-
-
 //function for retrieving voicemail box by exten
 function getMailbox($voicemail_exten) {
 	global $db_name, $db_host,$db_user,$db_passwd;
 
 
-	mysql_connect($db_host, $db_user, $db_passwd)
-		or die('Could not connect: ' . mysql_error());
+	$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	mysql_select_db($db_name) or die('Could not select database');
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"],1);
 
-	mysql_query($sql);
+    mysql_connect($server, $username, $password);
+
+
+    mysql_select_db($db);
+
+    //make sure DB is ready... #TODO: make this more efficient. 
+		mysql_query($sql);
 
 
 	//make sure inputs are db safe
@@ -62,10 +64,19 @@ function getMailbox($voicemail_exten) {
 function addMessage($voicemail_exten, $caller_id, $recording_url) {
 	global $db_name, $db_host,$db_user,$db_passwd;
 
-	mysql_connect($db_host, $db_user, $db_passwd)
-		or die('Could not connect: ' . mysql_error());
+	
+	$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	mysql_select_db($db_name) or die('Could not select database');
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"],1);
+
+    mysql_connect($server, $username, $password);
+
+
+    mysql_select_db($db);
+
 
 	mysql_query($sql);
 
@@ -90,10 +101,17 @@ function addMessage($voicemail_exten, $caller_id, $recording_url) {
 function updateMessageFlag($msg_id, $flag=0){
 	global $db_name, $db_host,$db_user,$db_passwd;
 
-	mysql_connect($db_host, $db_user, $db_passwd)
-		or die('Could not connect: ' . mysql_error());
+	$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	mysql_select_db($db_name) or die('Could not select database');
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"],1);
+
+    mysql_connect($server, $username, $password);
+
+
+    mysql_select_db($db);
 
 	mysql_query($sql);
 
@@ -112,10 +130,17 @@ function updateMessageFlag($msg_id, $flag=0){
 function getMessages($voicemail_exten,$flag=0){
 	global $db_name, $db_host,$db_user,$db_passwd;
 
-	mysql_connect($db_host, $db_user, $db_passwd)
-		or die('Could not connect: ' . mysql_error());
+	$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	mysql_select_db($db_name) or die('Could not select database');
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"],1);
+
+    mysql_connect($server, $username, $password);
+
+
+    mysql_select_db($db);
 
 	mysql_query($sql);
 
@@ -143,10 +168,17 @@ function getMessages($voicemail_exten,$flag=0){
 function getMessage($msg_id){
 	global $db_name, $db_host,$db_user,$db_passwd;
 
-	mysql_connect($db_host, $db_user, $db_passwd)
-		or die('Could not connect: ' . mysql_error());
+	$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	mysql_select_db($db_name) or die('Could not select database');
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"],1);
+
+    mysql_connect($server, $username, $password);
+
+
+    mysql_select_db($db);
 
 	mysql_query($sql);
 

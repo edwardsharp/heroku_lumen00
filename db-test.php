@@ -32,7 +32,6 @@ $log->addWarning("ZOMG THIS IS ADD LOGG");
 	    exit;
 	}else{
 		echo "ZOMG,YAY!";
-		var_dump($db);
 	}
 
 
