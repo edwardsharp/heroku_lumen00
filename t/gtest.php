@@ -11,23 +11,22 @@
  //    header("content-type: text/xml");
 		
 function getURL($url){
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$ret = curl_exec($ch);
-	curl_close($ch);
-	return $ret;
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $ret = curl_exec($ch);
+  curl_close($ch);
+  return $ret;
 }
 
-//str_getcsv();
-$data = array_map('str_getcsv', getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
-$c = count($data);
-$r1 = rand(0, $c);
-$rand = $data[$r1];
+	$data = str_getcsv(getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
+	$c = count($data);
+	$r1 = rand(0, $c);
+	$rand = $data[$r1]
 
-echo "count: $c";
-echo "random: $rand";
-
-var_dump($data);
+	echo "count: $c";
+	echo "random: $rand";
+	
+	var_dump($data);
 
 
 ?>
