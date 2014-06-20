@@ -15,9 +15,13 @@ function getURL($url){
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $ret = curl_exec($ch);
   curl_close($ch);
+  if( isset($_GET['vardump']) ) {
+		var_dump($ret);
+	}
   return $ret;
 }
 
+function getRandomRow(){
 	//okay, i guess this is not really CSV, but newline'd...
 	$data = preg_split("/\\r\\n|\\r|\\n/",getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
 
@@ -25,13 +29,18 @@ function getURL($url){
 	$r1 = rand(0, $c);
 	$rand = $data[$r1];
 
-	echo "count: $c";
-	echo "random $r1: $rand";
+	if( isset($_GET['vardump']) ) {
+		echo "count: $c";
+		echo "random $r1: $rand";
+		var_dump($data);
+	}
 	
-if( isset($_GET['vardump']) ) {
-	var_dump($data);
+	return $rand;
 }
+
 	
+	echo getRandomRow();
+		
 
 
 ?>
