@@ -26,7 +26,7 @@ function getRandomRow(){
 	$data = preg_split("/\\r\\n|\\r|\\n/",getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
 
 	$c = count($data);
-	$r1 = rand(0, $c);
+	$r1 = rand(0, $c-1);
 	$rand = $data[$r1];
 
 	if( isset($_GET['vardump']) ) {
