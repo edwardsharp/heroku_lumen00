@@ -24,9 +24,12 @@ function getURL($url){
 	$rand = $data[$r1];
 
 	echo "count: $c";
-	echo "random: $rand";
+	echo "random $r1: $rand";
 	
+if( isset($_GET['vardump']) ) {
 	var_dump($data);
+}
+	
 
 
 ?>
