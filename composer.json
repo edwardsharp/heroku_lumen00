@@ -8,6 +8,7 @@
   "require": {
       "monolog/monolog": "~1.7",
 			"twilio/sdk": "dev-master",
-			"asimlqt/php-google-spreadsheet-client": "2.1.*"
+			"asimlqt/php-google-spreadsheet-client": "2.1.*", 
+			"ext-mysql": "*"
     }
 }
