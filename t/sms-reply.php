@@ -3,6 +3,8 @@ require('../vendor/autoload.php');
 
 $from = $_REQUEST['From'];
 
+$log->addWarning("REQUEST ".$_REQUEST);
+
 if( isset($_GET['vardump']) ) {
   var_dump($_REQUEST);
 }
