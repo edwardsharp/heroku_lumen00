@@ -12,6 +12,8 @@ $log->addWarning("_REQUEST ".$dump);
 
 
 $from = $_REQUEST['From'];
+$body = $_REQUEST['Body'];
+$message = '';
 
 if( isset($_GET['vardump']) ) {
   var_dump($_REQUEST);
@@ -41,23 +43,26 @@ function getRandomRow(){
         echo "random $r1: $rand";
         var_dump($data);
     }
-    
+
     return $rand;
 }
 
+function getHelpMsg(){
+   return "HELLO! SEND: R TO RECEIVE NEW MICRONEMEZ";
+}
 
 
+if (strcasecmp($body, 'r') == 0) {
+    $message = getRandomRow();
+}else {
+    $message = getHelpMsg();
+}
 
-
-
-
-
-
-    // now greet the sender
-    header("content-type: text/xml");
-    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+// now greet the sender
+header("content-type: text/xml");
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
 <Response>
-    <Message><?php echo getRandomRow(); ?></Message>
+    <Message><?php echo $message; ?></Message>
 </Response>
 
