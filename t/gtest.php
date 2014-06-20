@@ -18,7 +18,9 @@ function getURL($url){
   return $ret;
 }
 
-	$data = str_getcsv(getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
+	//okay, i guess this is not really CSV, but newline'd...
+	$data = explode("\n",str_getcsv(getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv')));
+
 	$c = count($data);
 	$r1 = rand(0, $c);
 	$rand = $data[$r1];
