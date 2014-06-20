@@ -21,7 +21,7 @@ function getURL($url){
 	$data = str_getcsv(getURL('https://docs.google.com/a/edwardsharp.net/spreadsheets/d/1KuyXu3OiXuKD7hScO_gJlx5cS_74oMPvGrwwawm62ck/export?gid=0&format=csv'));
 	$c = count($data);
 	$r1 = rand(0, $c);
-	$rand = $data[$r1]
+	$rand = $data[$r1];
 
 	echo "count: $c";
 	echo "random: $rand";
