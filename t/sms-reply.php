@@ -4,9 +4,11 @@ require('../vendor/autoload.php');
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+$dump = print_r($_REQUEST, true);
+
 $log = new Logger('appdebug');
 $log->pushHandler(new StreamHandler('php://stderr', Logger::WARNING));
-$log->addWarning("_REQUEST ".$_REQUEST);
+$log->addWarning("_REQUEST ".$dump);
 
 
 $from = $_REQUEST['From'];
